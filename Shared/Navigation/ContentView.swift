@@ -8,7 +8,8 @@
 import SwiftUI
 import CoreData
 
-struct ContentView: View {
+struct ContentView: View
+{
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
@@ -16,32 +17,35 @@ struct ContentView: View {
         animation: .default)
     private var items: FetchedResults<Item>
 
-    var body: some View {
-        List {
-            ForEach(items) { item in
-                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-            }
-            .onDelete(perform: deleteItems)
-        }
-        .toolbar {
-            #if os(iOS)
-            EditButton()
-            #endif
+    var body: some View
+    {
+        HomeView()
+            .toolbar
+            {
+                #if os(iOS)
+                EditButton()
+                #endif
 
-            Button(action: addItem) {
-                Label("Add Item", systemImage: "plus")
+                Button(action: addItem)
+                {
+                    Label("Add Item", systemImage: "plus")
+                }
             }
-        }
     }
 
-    private func addItem() {
-        withAnimation {
+    private func addItem()
+    {
+        withAnimation
+        {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
 
-            do {
+            do
+            {
                 try viewContext.save()
-            } catch {
+            }
+            catch
+            {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nsError = error as NSError
@@ -50,13 +54,18 @@ struct ContentView: View {
         }
     }
 
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
+    private func deleteItems(offsets: IndexSet)
+    {
+        withAnimation
+        {
             offsets.map { items[$0] }.forEach(viewContext.delete)
 
-            do {
+            do
+            {
                 try viewContext.save()
-            } catch {
+            }
+            catch
+            {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nsError = error as NSError
@@ -73,8 +82,10 @@ private let itemFormatter: DateFormatter = {
     return formatter
 }()
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+struct ContentView_Previews: PreviewProvider
+{
+    static var previews: some View
+    {
+        ContentView().environment(\.managedObjectContext, Persistence.shared.container.viewContext)
     }
 }

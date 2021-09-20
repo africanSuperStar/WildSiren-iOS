@@ -8,13 +8,17 @@
 import SwiftUI
 
 @main
-struct WildSirenApp: App {
-    let persistenceController = PersistenceController.shared
+struct WildSirenApp: App
+{
+    let persistence = Persistence.shared
 
-    var body: some Scene {
-        WindowGroup {
+    var body: some Scene
+    {
+        WindowGroup
+        {
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environment(\.managedObjectContext, persistence.container.viewContext)
+                .environmentObject(HomeViewModel())
         }
     }
 }
