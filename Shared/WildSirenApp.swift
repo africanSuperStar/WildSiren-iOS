@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import RealmSwift
+
 
 @main
-struct WildSirenApp: App
+struct WildSirenApp: SwiftUI.App
 {
     let persistence = Persistence.shared
 
@@ -17,6 +19,7 @@ struct WildSirenApp: App
         WindowGroup
         {
             ContentView()
+                .environment(\.realmConfiguration, Realm.Configuration())
                 .environment(\.managedObjectContext, persistence.container.viewContext)
                 .environmentObject(HomeViewModel())
         }

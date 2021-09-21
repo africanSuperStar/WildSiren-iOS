@@ -15,7 +15,7 @@ struct _HomeViewItem <Content: View> : View
     @Binding
     internal var focused: Bool
     
-    let model: Organization
+    let model: OrganizationItem
     
     @ViewBuilder
     let content: Content
@@ -83,7 +83,7 @@ struct HomeViewItem_Previews: PreviewProvider
     {
         _HomeViewItem(
             focused: .constant(false),
-            model: Organization.empty()
+            model: OrganizationItem.empty()
         ) {
             Text("Mount Chilkoloo")
         }

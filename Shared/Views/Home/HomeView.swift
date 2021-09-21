@@ -22,32 +22,47 @@ struct HomeView : View
     
     var body: some View
     {
-        NavigationView
+        ZStack(alignment: .bottomTrailing)
         {
-            ScrollView
+            NavigationView
             {
-                LazyVGrid(columns: columns)
+                ScrollView
                 {
-                    ForEach(viewModel.organizations, id: \.self)
+                    LazyVGrid(columns: columns)
                     {
-                        organization in
-                        
-                        let view = HomeViewItem(focused: $_focused, organization: organization)
-                        
-                        if _focused && organization.license != viewModel.selected.value.license
+                        ForEach(viewModel.organizations.items, id: \.self)
                         {
-                            EmptyView()
-                        }
-                        else
-                        {
-                            view
-                                .transition(.move(edge: .bottom))
+                            organization in
+                            
+                            let view = HomeViewItem(focused: $_focused, organization: organization)
+                            
+                            if _focused && organization.license != viewModel.selected.value.license
+                            {
+                                EmptyView()
+                            }
+                            else
+                            {
+                                view
+                                    .transition(.move(edge: .bottom))
+                            }
                         }
                     }
                 }
+                .navigationTitle("Wild Siren")
+                .navigationBarHidden(_focused ? true : false)
             }
-            .navigationTitle("Wild Siren")
-            .navigationBarHidden(_focused ? true : false)
+            
+            HStack
+            {
+                Spacer()
+                
+                Button(action: {
+                    $viewModel.organizations.items.append(OrganizationItem.empty())
+                }) {
+                    Image(systemName: "plus")
+                }
+            }
+            .padding()
         }
     }
 }
@@ -69,7 +84,7 @@ struct HomeViewItem : View
     @Binding
     internal var focused: Bool
     
-    let organization: Organization
+    let organization: OrganizationItem
     
     var body: some View
     {

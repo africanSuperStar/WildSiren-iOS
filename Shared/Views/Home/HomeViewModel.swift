@@ -10,13 +10,15 @@ import SwiftUI
 import Combine
 import CoreData
 
+import RealmSwift
+
 
 final class HomeViewModel : ObservableObject
 {
     private var bag = Set <AnyCancellable> ()
  
-    var selected: CurrentValueSubject <Organization, Never> = CurrentValueSubject(Organization.empty())
+    var selected: CurrentValueSubject <OrganizationItem, Never> = CurrentValueSubject(OrganizationItem.empty())
     
-    @Published
-    var organizations: [Organization] = load("organization.json")
+    @ObservedRealmObject
+    var organizations = Organization()
 }

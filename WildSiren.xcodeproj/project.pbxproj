@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -35,8 +35,8 @@
 		A5CC7DE826F7AD48000D4306 /* HomeViewModel+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7DE626F7AD48000D4306 /* HomeViewModel+Error.swift */; };
 		A5CC7DEB26F7AE83000D4306 /* AnyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7DEA26F7AE83000D4306 /* AnyModel.swift */; };
 		A5CC7DEC26F7AE83000D4306 /* AnyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7DEA26F7AE83000D4306 /* AnyModel.swift */; };
-		A5CC7DEF26F7AEC3000D4306 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7DEE26F7AEC3000D4306 /* Organization.swift */; };
-		A5CC7DF026F7AEC3000D4306 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7DEE26F7AEC3000D4306 /* Organization.swift */; };
+		A5CC7DEF26F7AEC3000D4306 /* OrganizationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7DEE26F7AEC3000D4306 /* OrganizationItem.swift */; };
+		A5CC7DF026F7AEC3000D4306 /* OrganizationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7DEE26F7AEC3000D4306 /* OrganizationItem.swift */; };
 		A5CC7DF226F7B102000D4306 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7DF126F7B102000D4306 /* ModelData.swift */; };
 		A5CC7DF326F7B102000D4306 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7DF126F7B102000D4306 /* ModelData.swift */; };
 		A5CC7DF626F7B3E6000D4306 /* organization.json in Resources */ = {isa = PBXBuildFile; fileRef = A5CC7DF526F7B3E6000D4306 /* organization.json */; };
@@ -47,6 +47,12 @@
 		A5CC7DFF26F90892000D4306 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7DFD26F90892000D4306 /* Theme.swift */; };
 		A5CC7E0226F92A3F000D4306 /* NavigationLink+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7E0126F92A3F000D4306 /* NavigationLink+Ext.swift */; };
 		A5CC7E0326F92A3F000D4306 /* NavigationLink+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CC7E0126F92A3F000D4306 /* NavigationLink+Ext.swift */; };
+		A5CEDA9A26FA48E100EEF10C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = A5CEDA9926FA48E100EEF10C /* Realm */; };
+		A5CEDA9C26FA48E100EEF10C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A5CEDA9B26FA48E100EEF10C /* RealmSwift */; };
+		A5CEDA9F26FA48ED00EEF10C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = A5CEDA9E26FA48ED00EEF10C /* Realm */; };
+		A5CEDAA126FA48ED00EEF10C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A5CEDAA026FA48ED00EEF10C /* RealmSwift */; };
+		A5CEDAA326FA4E0200EEF10C /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CEDAA226FA4E0200EEF10C /* Organization.swift */; };
+		A5CEDAA426FA4E0200EEF10C /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CEDAA226FA4E0200EEF10C /* Organization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,12 +97,13 @@
 		A5CC7DE326F7AD0C000D4306 /* HomeViewModel+Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewModel+Event.swift"; sourceTree = "<group>"; };
 		A5CC7DE626F7AD48000D4306 /* HomeViewModel+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewModel+Error.swift"; sourceTree = "<group>"; };
 		A5CC7DEA26F7AE83000D4306 /* AnyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyModel.swift; sourceTree = "<group>"; };
-		A5CC7DEE26F7AEC3000D4306 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		A5CC7DEE26F7AEC3000D4306 /* OrganizationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationItem.swift; sourceTree = "<group>"; };
 		A5CC7DF126F7B102000D4306 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		A5CC7DF526F7B3E6000D4306 /* organization.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = organization.json; sourceTree = "<group>"; };
 		A5CC7DFA26F90823000D4306 /* HomeViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewItem.swift; sourceTree = "<group>"; };
 		A5CC7DFD26F90892000D4306 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A5CC7E0126F92A3F000D4306 /* NavigationLink+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationLink+Ext.swift"; sourceTree = "<group>"; };
+		A5CEDAA226FA4E0200EEF10C /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +111,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5CEDA9C26FA48E100EEF10C /* RealmSwift in Frameworks */,
+				A5CEDA9A26FA48E100EEF10C /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +120,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5CEDAA126FA48ED00EEF10C /* RealmSwift in Frameworks */,
+				A5CEDA9F26FA48ED00EEF10C /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +151,7 @@
 				A5CC7DA726F7A819000D4306 /* Tests iOS */,
 				A5CC7DB226F7A819000D4306 /* Tests macOS */,
 				A5CC7D9526F7A819000D4306 /* Products */,
+				A5CEDA9D26FA48ED00EEF10C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -272,7 +284,8 @@
 		A5CC7DED26F7AEA9000D4306 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A5CC7DEE26F7AEC3000D4306 /* Organization.swift */,
+				A5CC7DEE26F7AEC3000D4306 /* OrganizationItem.swift */,
+				A5CEDAA226FA4E0200EEF10C /* Organization.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -303,6 +316,13 @@
 			path = Items;
 			sourceTree = "<group>";
 		};
+		A5CEDA9D26FA48ED00EEF10C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -319,6 +339,10 @@
 			dependencies = (
 			);
 			name = "WildSiren (iOS)";
+			packageProductDependencies = (
+				A5CEDA9926FA48E100EEF10C /* Realm */,
+				A5CEDA9B26FA48E100EEF10C /* RealmSwift */,
+			);
 			productName = "WildSiren (iOS)";
 			productReference = A5CC7D9426F7A819000D4306 /* WildSiren.app */;
 			productType = "com.apple.product-type.application";
@@ -336,6 +360,10 @@
 			dependencies = (
 			);
 			name = "WildSiren (macOS)";
+			packageProductDependencies = (
+				A5CEDA9E26FA48ED00EEF10C /* Realm */,
+				A5CEDAA026FA48ED00EEF10C /* RealmSwift */,
+			);
 			productName = "WildSiren (macOS)";
 			productReference = A5CC7D9C26F7A819000D4306 /* WildSiren.app */;
 			productType = "com.apple.product-type.application";
@@ -410,6 +438,9 @@
 				Base,
 			);
 			mainGroup = A5CC7D8426F7A817000D4306;
+			packageReferences = (
+				A5CEDA9826FA48E100EEF10C /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = A5CC7D9526F7A819000D4306 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -465,7 +496,7 @@
 				A5CC7DE726F7AD48000D4306 /* HomeViewModel+Error.swift in Sources */,
 				A5CC7DB626F7A819000D4306 /* WildSiren.xcdatamodeld in Sources */,
 				A5CC7DFB26F90823000D4306 /* HomeViewItem.swift in Sources */,
-				A5CC7DEF26F7AEC3000D4306 /* Organization.swift in Sources */,
+				A5CC7DEF26F7AEC3000D4306 /* OrganizationItem.swift in Sources */,
 				A5CC7E0226F92A3F000D4306 /* NavigationLink+Ext.swift in Sources */,
 				A5CC7DEB26F7AE83000D4306 /* AnyModel.swift in Sources */,
 				A5CC7DE126F7ACF9000D4306 /* HomeViewModel+Reducer.swift in Sources */,
@@ -478,6 +509,7 @@
 				A5CC7DD826F7AC11000D4306 /* HomeView.swift in Sources */,
 				A5CC7DB826F7A819000D4306 /* WildSirenApp.swift in Sources */,
 				A5CC7DBA26F7A819000D4306 /* ContentView.swift in Sources */,
+				A5CEDAA326FA4E0200EEF10C /* Organization.swift in Sources */,
 				A5CC7DF226F7B102000D4306 /* ModelData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,7 +521,7 @@
 				A5CC7DE826F7AD48000D4306 /* HomeViewModel+Error.swift in Sources */,
 				A5CC7DB726F7A819000D4306 /* WildSiren.xcdatamodeld in Sources */,
 				A5CC7DFC26F90823000D4306 /* HomeViewItem.swift in Sources */,
-				A5CC7DF026F7AEC3000D4306 /* Organization.swift in Sources */,
+				A5CC7DF026F7AEC3000D4306 /* OrganizationItem.swift in Sources */,
 				A5CC7E0326F92A3F000D4306 /* NavigationLink+Ext.swift in Sources */,
 				A5CC7DEC26F7AE83000D4306 /* AnyModel.swift in Sources */,
 				A5CC7DE226F7ACF9000D4306 /* HomeViewModel+Reducer.swift in Sources */,
@@ -502,6 +534,7 @@
 				A5CC7DD926F7AC11000D4306 /* HomeView.swift in Sources */,
 				A5CC7DB926F7A819000D4306 /* WildSirenApp.swift in Sources */,
 				A5CC7DBB26F7A819000D4306 /* ContentView.swift in Sources */,
+				A5CEDAA426FA4E0200EEF10C /* Organization.swift in Sources */,
 				A5CC7DF326F7B102000D4306 /* ModelData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -880,6 +913,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A5CEDA9826FA48E100EEF10C /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A5CEDA9926FA48E100EEF10C /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5CEDA9826FA48E100EEF10C /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		A5CEDA9B26FA48E100EEF10C /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5CEDA9826FA48E100EEF10C /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+		A5CEDA9E26FA48ED00EEF10C /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5CEDA9826FA48E100EEF10C /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		A5CEDAA026FA48ED00EEF10C /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A5CEDA9826FA48E100EEF10C /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		A5CC7D8A26F7A817000D4306 /* WildSiren.xcdatamodeld */ = {
