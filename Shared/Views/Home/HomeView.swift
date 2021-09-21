@@ -32,31 +32,22 @@ struct HomeView : View
                     {
                         organization in
                         
-                        _HomeViewItem(
-                            focused: $_focused,
-                            model:   organization
-                        ) {
-                            HStack
-                            {
-                                Text("Flamingo Dam")
-                                    .font(.title3)
-                                    .bold()
-                                
-                                Spacer()
-                                
-                                Text("$250")
-                                    .font(.title3)
-                                    .bold()
-                            }
+                        let view = HomeViewItem(focused: $_focused, organization: organization)
+                        
+                        if _focused && organization.license != viewModel.selected.value.license
+                        {
+                            EmptyView()
                         }
-                        .padding(.horizontal, Swatch.margin)
-                        .opacity((!_focused || viewModel.selected.value.license == organization.license) ? 1.0 : 0.0)
+                        else
+                        {
+                            view
+                                .transition(.move(edge: .bottom))
+                        }
                     }
                 }
             }
-            .animation(.easeInOut)
-            .navigationBarHidden(_focused)
             .navigationTitle("Wild Siren")
+            .navigationBarHidden(_focused ? true : false)
         }
     }
 }
@@ -67,5 +58,28 @@ struct HomeView_Previews: PreviewProvider
     {
         HomeView()
             .environmentObject(HomeViewModel())
+    }
+}
+
+struct HomeViewItem : View
+{
+    @EnvironmentObject
+    var viewModel: HomeViewModel
+    
+    @Binding
+    internal var focused: Bool
+    
+    let organization: Organization
+    
+    var body: some View
+    {
+        _HomeViewItem(
+            focused: $focused,
+            model:   organization
+        ) {
+            
+        }
+        .padding(.horizontal, Swatch.margin)
+        .opacity((!focused || viewModel.selected.value.license == organization.license) ? 1.0 : 0.0)
     }
 }
