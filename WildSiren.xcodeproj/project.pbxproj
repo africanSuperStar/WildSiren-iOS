@@ -53,6 +53,8 @@
 		A5CEDAA126FA48ED00EEF10C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A5CEDAA026FA48ED00EEF10C /* RealmSwift */; };
 		A5CEDAA326FA4E0200EEF10C /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CEDAA226FA4E0200EEF10C /* Organization.swift */; };
 		A5CEDAA426FA4E0200EEF10C /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CEDAA226FA4E0200EEF10C /* Organization.swift */; };
+		A5CEDAA626FA6CAC00EEF10C /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CEDAA526FA6CAC00EEF10C /* AppViewModel.swift */; };
+		A5CEDAA726FA6CAC00EEF10C /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CEDAA526FA6CAC00EEF10C /* AppViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,7 @@
 		A5CC7DFD26F90892000D4306 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		A5CC7E0126F92A3F000D4306 /* NavigationLink+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationLink+Ext.swift"; sourceTree = "<group>"; };
 		A5CEDAA226FA4E0200EEF10C /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		A5CEDAA526FA6CAC00EEF10C /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +224,7 @@
 			children = (
 				A5CC7DD626F7ABF7000D4306 /* Home */,
 				A5CC7DCF26F7AAA0000D4306 /* Components */,
+				A5CEDAA526FA6CAC00EEF10C /* AppViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -411,7 +415,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					A5CC7D9326F7A819000D4306 = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -495,6 +499,7 @@
 			files = (
 				A5CC7DE726F7AD48000D4306 /* HomeViewModel+Error.swift in Sources */,
 				A5CC7DB626F7A819000D4306 /* WildSiren.xcdatamodeld in Sources */,
+				A5CEDAA626FA6CAC00EEF10C /* AppViewModel.swift in Sources */,
 				A5CC7DFB26F90823000D4306 /* HomeViewItem.swift in Sources */,
 				A5CC7DEF26F7AEC3000D4306 /* OrganizationItem.swift in Sources */,
 				A5CC7E0226F92A3F000D4306 /* NavigationLink+Ext.swift in Sources */,
@@ -520,6 +525,7 @@
 			files = (
 				A5CC7DE826F7AD48000D4306 /* HomeViewModel+Error.swift in Sources */,
 				A5CC7DB726F7A819000D4306 /* WildSiren.xcdatamodeld in Sources */,
+				A5CEDAA726FA6CAC00EEF10C /* AppViewModel.swift in Sources */,
 				A5CC7DFC26F90823000D4306 /* HomeViewItem.swift in Sources */,
 				A5CC7DF026F7AEC3000D4306 /* OrganizationItem.swift in Sources */,
 				A5CC7E0326F92A3F000D4306 /* NavigationLink+Ext.swift in Sources */,
@@ -733,6 +739,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = NF5R33H474;
@@ -757,6 +764,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = NF5R33H474;

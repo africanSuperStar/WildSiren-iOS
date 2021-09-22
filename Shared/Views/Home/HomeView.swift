@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 
 struct HomeView : View
 {
+    @EnvironmentObject
+    var app: AppViewModel
+
     @EnvironmentObject
     var viewModel: HomeViewModel
     
@@ -26,24 +30,50 @@ struct HomeView : View
         {
             NavigationView
             {
-                ScrollView
+                ScrollViewReader
                 {
-                    LazyVGrid(columns: columns)
+                    scrollProxy in
+                    
+                    ScrollView
                     {
-                        ForEach(viewModel.organizations.items, id: \.self)
+                        VStack
                         {
-                            organization in
-                            
-                            let view = HomeViewItem(focused: $_focused, organization: organization)
-                            
-                            if _focused && organization.license != viewModel.selected.value.license
+                            ForEach(items, id: \.self)
                             {
-                                EmptyView()
+                                organization in
+                                
+                                let index = Double(items.firstIndex(of: organization) ?? 0)
+                                let delay = (index * 0.05) + 0.05
+             
+                                if _focused && (organization.license != viewModel.selected.value.license)
+                                {
+                                    EmptyView()
+                                        .id(organization.license)
+                                        .transition(.move(edge: .trailing))
+                                        .animation(.default.delay(delay))
+                                }
+                                else
+                                {
+                                    HomeViewItem(focused: $_focused, organization: organization)
+                                        .id(organization.license)
+                                        .transition(.move(edge: .leading))
+                                        .animation(.default.delay(delay))
+                                }
                             }
-                            else
+                        }
+                    }
+                    .onChange(of: _focused)
+                    {
+                        _ in
+                        
+                        if !_focused
+                        {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8)
                             {
-                                view
-                                    .transition(.move(edge: .bottom))
+                                withAnimation
+                                {
+                                    scrollProxy.scrollTo(viewModel.selected.value.license, anchor: .bottom)
+                                }
                             }
                         }
                     }
@@ -56,23 +86,45 @@ struct HomeView : View
             {
                 Spacer()
                 
-                Button(action: {
-                    $viewModel.organizations.items.append(OrganizationItem.empty())
+                Button(action:
+                {
+                    viewModel.organizations.items.append(OrganizationItem.empty())
+                    
+                    if let realm = app.realm
+                    {
+                        try? realm.write
+                        {
+                            realm.add(OrganizationItem.empty())
+                        }
+                        
+                        app.realm = realm
+                    }
                 }) {
                     Image(systemName: "plus")
+                        .foregroundColor(Color.white)
+                        .padding(Swatch.smallMargin)
+                        .background(
+                            Circle()
+                                .foregroundColor(Color.blue)
+                        )
+                        .padding()
                 }
             }
-            .padding()
         }
     }
-}
-
-struct HomeView_Previews: PreviewProvider
-{
-    static var previews: some View
+    
+    var items: Array <OrganizationItem>
     {
-        HomeView()
-            .environmentObject(HomeViewModel())
+        if let realm = app.realm
+        {
+            let results = realm.objects(OrganizationItem.self)
+            
+            viewModel.organizations.items.append(objectsIn: results)
+            
+            return Array(results)
+        }
+        
+        return []
     }
 }
 

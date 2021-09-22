@@ -21,7 +21,10 @@ struct _HomeViewItem <Content: View> : View
     let content: Content
     
     @State
-    private var _cellHeight: CGFloat = 250
+    private var _cellHeight: CGFloat = 180
+    
+    @State
+    private var _opacity: CGFloat = 0.0
     
     var body: some View
     {
@@ -29,7 +32,7 @@ struct _HomeViewItem <Content: View> : View
             alignment: .center,
             spacing: Swatch.tinyMargin
         ) {
-            image.transition(.move(edge: .bottom))
+            image
             
             if focused
             {
@@ -55,23 +58,22 @@ struct _HomeViewItem <Content: View> : View
             .onTapGesture
             {
                 viewModel.selected.send(model)
-                
+
                 if focused
                 {
-                    withAnimation(.easeInOut(duration: 0.25))
+                    withAnimation(.easeInOut(duration: 0.45).delay(0.5))
                     {
-                        _cellHeight = 250
+                        _cellHeight = 180
                         focused.toggle()
                     }
                 }
                 else
                 {
-                    withAnimation(.easeInOut(duration: 0.25))
+                    withAnimation(.easeInOut(duration: 0.45))
                     {
                         _cellHeight = 400
                         focused.toggle()
                     }
-                    
                 }
             }
     }

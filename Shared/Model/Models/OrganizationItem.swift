@@ -44,15 +44,12 @@ final class OrganizationItem :
     @Persisted
     var profile:          String?
     
-    @Persisted
-    var assets:           List<Data?>
-    
     @Persisted(originProperty: "items")
     var organizations: LinkingObjects <Organization>
     
     enum CodingKeys: String, CodingKey
     {
-        case license, created, active, name, shortDescription, longDescription, profile, assets
+        case license, created, active, name, shortDescription, longDescription, profile
     }
     
     convenience init(
@@ -62,8 +59,7 @@ final class OrganizationItem :
         name:             String?,
         shortDescription: String?,
         longDescription:  String?,
-        profile:          String?,
-        assets:           List<Data?>
+        profile:          String?
     ) {
         self.init()
         
@@ -74,7 +70,6 @@ final class OrganizationItem :
         self.shortDescription = shortDescription
         self.longDescription  = longDescription
         self.profile          = profile
-        self.assets           = assets
     }
     
     func encode(to encoder: Encoder) throws
@@ -83,24 +78,22 @@ final class OrganizationItem :
         
         try container.encode(license,          forKey: .license)
         try container.encode(created,          forKey: .created)
-        try container.encode(active,           forKey: .assets)
+        try container.encode(active,           forKey: .active)
         try container.encode(shortDescription, forKey: .shortDescription)
         try container.encode(longDescription,  forKey: .longDescription)
         try container.encode(profile,          forKey: .profile)
-        try container.encode(assets,           forKey: .assets)
     }
     
     static func empty() -> OrganizationItem
     {
         return OrganizationItem(
-            license:          "",
-            created:          "",
-            active:           false,
-            name:             "",
-            shortDescription: "",
-            longDescription:  "",
-            profile:          "chilkoottrail",
-            assets:           List<Data?>()
+            license:          UUID().uuidString,
+            created:          Date().description,
+            active:           true,
+            name:             "Chilk Koot Trail",
+            shortDescription: "Lorem Ipsem",
+            longDescription:  "Lorem Ipsem Description",
+            profile:          "chilkoottrail"
         )
     }
 }
