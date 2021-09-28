@@ -62,7 +62,7 @@ extension Color
     
     static var secondaryText: Color
     {
-        return Color(red:0.51, green:0.58, blue:0.68)
+        return Color(red:0.7, green:0.7, blue:0.7)
     }
 }
 

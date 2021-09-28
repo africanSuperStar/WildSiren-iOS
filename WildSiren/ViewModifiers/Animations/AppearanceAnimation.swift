@@ -39,7 +39,7 @@ struct OpacityAnimationModifier : ViewModifier
             }
             .onDisappear
             {
-                withAnimation(.easeInOut(duration: 0.8))
+                withAnimation(.default)
                 {
                     _value = maxValue
                 }

@@ -14,17 +14,65 @@ struct RegistrationForm : View
     private var app = AppViewModel()
     
     @State
-    private var organization = Organization.empty()
+    private var image: UIImage? = nil
+
+    @State
+    private var userType = 0
+    
+    var body: some View
+    {
+        VStack
+        {
+            Picker("Organization or User", selection: $userType)
+            {
+                Text("Organization")
+                    .tag(0)
+                
+                Text("User")
+                    .tag(1)
+            }
+            .padding()
+            .pickerStyle(.segmented)
+            .colorMultiply(Color.secondary)
+            
+            if userType == 0
+            {
+                _OrganizationForm(image: $image)
+                    .opacity(minValue: 1.0, maxValue: 0.0)
+            }
+            else
+            {
+                
+            }
+            
+            Spacer()
+        }
+        .navigationBarTitle("Register")
+    }
+}
+
+struct OrganizationPage_Previews : PreviewProvider
+{
+    static var previews: some View {
+        
+        RegistrationForm()
+    }
+}
+
+struct _OrganizationForm : View
+{
+    @Binding
+    internal var image: UIImage?
     
     @State
-    private var image: UIImage? = nil
+    private var organization = Organization.empty()
     
     @State
     private var showSheet: Bool = false
     
     @State
     private var registerStatus: Bool = false
-        
+
     var body: some View
     {
         Form
@@ -47,8 +95,9 @@ struct RegistrationForm : View
             {
                 TextField("Short Description", text: $organization.shortDescription)
                 TextEditor(text: $organization.longDescription)
+                    .foregroundColor(Color.secondaryText)
             }
-
+            
             Section(header: Text("Organization Media"))
             {
                 HStack
@@ -64,7 +113,7 @@ struct RegistrationForm : View
                         .aspectRatio(contentMode: .fill)
                         .clipShape(Circle())
                         .padding(8)
-
+                    
                     Spacer()
                     
                     Button(action: {
@@ -75,11 +124,11 @@ struct RegistrationForm : View
                         Text("Change Photo")
                             .foregroundColor(.black)
                             .sheet(isPresented: $showSheet)
-                            {
-                                ImagePicker(sourceType: .photoLibrary, selectedImage: $image)
-                            }
-                            .padding(.horizontal, Swatch.largeMargin)
-                            .padding(.vertical, Swatch.smallMargin)
+                        {
+                            ImagePicker(sourceType: .photoLibrary, selectedImage: $image)
+                        }
+                        .padding(.horizontal, Swatch.largeMargin)
+                        .padding(.vertical, Swatch.smallMargin)
                     }
                     .background(
                         Color.gray.opacity(0.25)
@@ -87,30 +136,23 @@ struct RegistrationForm : View
                     .cornerRadius(Swatch.cornerRadius)
                 }
             }
-
             
-            Button(action: {
-                
-                self.registerStatus = true
-                
-            }) {
-                HStack
-                {
-                    Spacer()
-                    Text(registerStatus ? "Registered" : "Register")
-                    Spacer()
+            Section
+            {
+                Button(action: {
+                    
+                    self.registerStatus = true
+                    
+                }) {
+                    HStack
+                    {
+                        Spacer()
+                        Text(registerStatus ? "Registered" : "Register")
+                        Spacer()
+                    }
                 }
+                .disabled(registerStatus)
             }
-            .disabled(registerStatus)
         }
-        .navigationBarTitle("Register")
-    }
-}
-
-struct OrganizationPage_Previews : PreviewProvider
-{
-    static var previews: some View {
-        
-        RegistrationForm()
     }
 }

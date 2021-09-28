@@ -12,12 +12,16 @@ struct OnboardingView: View
 {
     var body: some View
     {
-        _OnboardingContents()
-            .background(
-                _OnboardingBackground()
-            )
-            .frame(maxHeight: .infinity)
-            .ignoresSafeArea(.all, edges: [.leading, .trailing])
+        NavigationView
+        {
+            _OnboardingContents()
+                .background(
+                    _OnboardingBackground()
+                )
+                .frame(maxHeight: .infinity)
+                .ignoresSafeArea(.all, edges: [.leading, .trailing])
+        }
+        .transition(.move(edge: .bottom))
     }
 }
 
@@ -125,7 +129,7 @@ struct _OnboardingBackground : View
             {
                 index, name in
                 
-                let delay = (Double(index) * Double.random(in: 0.05..<0.1)) + 0.05
+                let delay = (Double(index) * Double.random(in: 0.05..<0.1))
                 
                 Image(name)
                     .resizable()
@@ -148,26 +152,27 @@ struct _OnboardingContents : View
             
             _Item()
                 .padding(.vertical, Swatch.largeMargin)
-            
-            Button("Do you really want to change the world?")
+        
+            NavigationLink(destination: RegistrationForm())
             {
-                
+                Text("Do you really want to change the world?")
             }
             .padding()
             .overlay(
                 RoundedRectangle(
                     cornerRadius: Swatch.smallRectRadius
                 )
-                .stroke(Color.primary, lineWidth: 4)
+                    .stroke(Color.primary, lineWidth: 4)
             )
             .background(
                 RoundedRectangle(
                     cornerRadius: Swatch.smallRectRadius
                 )
-                .fill(Color.black)
+                    .fill(Color.black)
             )
             .foregroundColor(Color.white)
-            
+            .buttonStyle(PlainButtonStyle())
+
             Spacer()
         }
     }
