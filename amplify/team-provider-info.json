@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-wildsiren-ios-dev-221505-authRole",
+      "UnauthRoleArn": "arn:aws:iam::598577191636:role/amplify-wildsiren-ios-dev-221505-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::598577191636:role/amplify-wildsiren-ios-dev-221505-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-wildsiren-ios-dev-221505-deployment",
+      "UnauthRoleName": "amplify-wildsiren-ios-dev-221505-unauthRole",
+      "StackName": "amplify-wildsiren-ios-dev-221505",
+      "StackId": "arn:aws:cloudformation:eu-west-1:598577191636:stack/amplify-wildsiren-ios-dev-221505/744a6460-1f06-11ec-8483-021efb280c01",
+      "AmplifyAppId": "d2w29ek77gcilc"
+    }
+  }
+}

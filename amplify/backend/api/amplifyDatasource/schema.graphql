@@ -1,0 +1,10 @@
+type Organization @model {
+  id:               ID!
+  license:          String!
+  created:          String
+  active:           Boolean
+  name:             String
+  shortDescription: String
+  longDescription:  String
+  profile:          String
+}
